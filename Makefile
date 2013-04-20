@@ -7,6 +7,12 @@ cc=gcc
 prog=$(bin)/StudyHelper
 
 all: binary
+	ln -s $(prog) StudyHelper
+	
+clean:
+	rm -f $(obj)/*.o
+	rm -f $(bin)/StudyHelper*
+	rm -f StudyHelper*
 
 binary: $(prog)
 	
