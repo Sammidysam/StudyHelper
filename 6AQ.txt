@@ -1,0 +1,120 @@
+la alfombra
+el armario
+la cama
+la cómoda
+las cortinas
+el cuadro
+el despertador
+el dormitorio
+el estante
+la lámpara
+la mesita
+la pared
+el disco compacto
+el equipo sonido
+el lector DVD
+el televisor
+el video
+la videocasetera
+los colores
+amarillo
+anaranjado/naranja
+azul
+blanco
+gris
+marrón/pardo/café
+morado/violeta
+negro
+rojo
+rosado
+verde
+bonito
+feo
+grande
+importante
+mismo
+pequeño
+propio
+a la derecha
+a la izquierda
+mejor que
+peor que
+más que
+menos que
+mayor que
+menor que
+la cosa
+para mi
+para ti
+los quehaceres
+planchar
+la ropa
+cocinar
+la cocina
+la basura
+lavar
+el lavaplatos
+quitar al polvo
+pasar la aspirdora
+hacer la cama
+darle de comer al perro/gato
+rug
+closet
+bed
+dresser
+curtains
+painting
+alarm clock
+bedroom
+shelf/bookshelf
+lamp
+night table
+wall
+CD
+sound (stereo) system
+DVD player
+television set
+videocassette
+VCR
+colors
+yellow
+orange
+blue
+white
+gray
+brown
+purple
+black
+red
+pink
+green
+pretty
+ugly
+big/large
+important
+same
+small
+own
+to the right
+to the left
+better than
+worse than
+more than
+less than
+older than
+younger than
+thing
+for me
+for you
+chores
+to iron
+clothing
+to cook
+kitchen
+trash
+to wash
+dishwasher
+to dust
+to vacuum
+to make the bed
+to feed the dog/cat

@@ -1,0 +1,106 @@
+short (stature)
+tall
+young woman
+young man
+woman
+man
+short (length)
+good-looking
+young
+long
+old
+hair
+gray
+red-haired
+blond
+black
+brown (chestnut)
+bajo
+alto
+la joven
+el joven
+la mujer
+el hombre
+corto
+guapo
+joven
+largo
+viejo
+el pelo
+canoso
+pelirrojo
+rubio
+negro
+castaño
+to be warm/hot
+to be cold
+to be sleepy
+delicious
+to want
+to order
+main dish
+dessert
+rich/tasty
+sugar
+spoon
+knife
+pepper
+plate/dish
+salt
+napkin
+cup
+fork
+glass
+waiter
+waitress
+bill
+menu
+now
+other/another
+tener calor
+tener frío
+tener sueño
+delicioso
+desear
+pedir
+el plato principal
+el postre
+rico
+el azúcar
+la cuchara
+el cuchillo
+la pimienta
+el plato
+la sal
+la servilleta
+la taza
+el tenedor
+el vaso
+el camarero
+la camarera
+la cuenta
+el menú
+ahora
+otro
+to teach
+enseñar
+sick
+sad
+tired
+happy
+preoccupied/worried
+busy
+nervous
+emotional/excited
+peaceful/calm
+angry
+enfermo
+triste
+cansado
+alegre
+preocupado
+ocupado
+nervioso
+emocionado
+tranquilo
+enojado
