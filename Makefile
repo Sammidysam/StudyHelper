@@ -6,13 +6,15 @@ head=$(src)/boolean.h $(src)/input.h
 cc=gcc
 prog=$(bin)/StudyHelper
 
-default: init all
+default: init all move
 
 init:
 	mkdir -p obj
 	mkdir -p bin
 
 all: binary
+	
+move:
 	ln -s $(prog) StudyHelper
 	
 clean:
