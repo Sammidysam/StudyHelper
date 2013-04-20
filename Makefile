@@ -9,8 +9,8 @@ prog=$(bin)/StudyHelper
 default: init all
 
 init:
-	mkdir obj
-	mkdir bin
+	mkdir -p obj
+	mkdir -p bin
 
 all: binary
 	ln -s $(prog) StudyHelper
