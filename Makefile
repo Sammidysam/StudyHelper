@@ -6,6 +6,12 @@ head=$(src)/boolean.h $(src)/input.h
 cc=gcc
 prog=$(bin)/StudyHelper
 
+default: init all
+
+init:
+	mkdir obj
+	mkdir bin
+
 all: binary
 	ln -s $(prog) StudyHelper
 	
