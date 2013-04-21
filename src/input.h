@@ -5,9 +5,15 @@
 #include <string.h>
 #include "boolean.h"
 
+#ifndef OK
 #define OK 0
+#endif
+#ifndef NO_INPUT
 #define NO_INPUT 1
+#endif
+#ifndef TOO_LONG
 #define TOO_LONG 2
+#endif
 
 //thanks to http://stackoverflow.com/questions/4023895/how-to-read-string-entered-by-user-in-c/4023921#4023921 for the great code!
 //this will never return NO_INPUT sadly

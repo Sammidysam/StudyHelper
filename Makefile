@@ -1,7 +1,7 @@
 bin=bin
 src=src
 obj=obj
-head=$(src)/boolean.h $(src)/input.h
+head=$(src)/boolean.h $(src)/input.h $(src)/files.h
 
 cc=gcc
 prog=$(bin)/StudyHelper
