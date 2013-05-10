@@ -1,31 +1,48 @@
+rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
+
 bin=bin
 src=src
 obj=obj
-head=$(src)/boolean.h $(src)/input.h $(src)/files.h
+sources:=$(call rwildcard,$(src)/*/,*.c)
+headers:=$(call rwildcard,$(src)/*/,*.h)
+innerprogram=$(bin)/Spanish
 
-cc=gcc
 prog=$(bin)/StudyHelper
 
 default: init all move
 
 init:
-	mkdir -p obj
-	mkdir -p bin
+	-mkdir obj
+	-mkdir bin
 
 all: binary
 	
 move:
-	ln -s $(prog) StudyHelper
+	-cp $(bin)/* .
+	-copy $(bin)\* .
 	
 clean:
-	rm -f $(obj)/*.o
-	rm -f $(bin)/StudyHelper*
-	rm -f StudyHelper*
+	-rm $(obj)/*.o
+	-rm $(bin)/StudyHelper*
+	-rm ./StudyHelper*
+	-del $(obj)\*.o
+	-del $(bin)\StudyHelper*
+	-del .\StudyHelper*
 
-binary: $(prog)
+binary: $(prog) $(innerprogram)
+
+test:
+	echo $(sources)
+	echo $(headers)
 	
-$(obj)/main.o: $(head) $(src)/main.c
-	$(cc) -c -o $(obj)/main.o $(src)/main.c -O3
+$(obj)/main.o: $(src)/main.c
+	gcc -c -o $(obj)/main.o $(src)/main.c -O3
 	
 $(prog): $(obj)/main.o
-	$(cc) -o $(prog) $(obj)/main.o -O3
+	gcc -o $(prog) $(obj)/main.o -O3
+	
+$(obj)/lesson.o: $(sources) $(headers)
+	gcc -c -o $(obj)/lesson.o $(sources) -O3
+
+$(innerprogram): $(obj)/lesson.o
+	gcc -o $(innerprogram) $(obj)/lesson.o -O3

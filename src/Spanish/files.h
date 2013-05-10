@@ -2,11 +2,18 @@
 #define FILES_H
 
 #include <stdio.h>
+#include <string.h>
+#include "errorlog.h"
+#include "boolean.h"
 
 bool checkExistance(FILE *file, char *name, bool print){
 	if(print && !file){
+		char message [40];
 		printf("No file by the name ");
+		sprintf(message, "%s", "No file by the name ");
 		printf("%s\n", name);
+		sprintf(message + strlen(message), "%s", name);
+		logError(message);
 	}
 	return file ? true : false;
 }
@@ -29,6 +36,7 @@ int getLines(char *questionFile, char *answerFile){
 	}
 	if(questionLines != answerLines){
 		printf("The number of lines in the two files are different!  This will cause problems, so you should check that out.\n");
+		logError("Number of lines in question and answer files are different.\n");
 		return -2;
 	}
 	fclose(question);
