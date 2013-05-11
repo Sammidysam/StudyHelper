@@ -3,9 +3,7 @@ rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
 bin=bin
 src=src
 obj=obj
-sources:=$(call rwildcard,$(src)/*/,*.c)
-headers:=$(call rwildcard,$(src)/*/,*.h)
-innerprogram=$(bin)/Spanish
+dirs:=$(sort $(dir $(call rwildcard,$(src)/*/,*)))
 
 prog=$(bin)/StudyHelper
 
@@ -26,14 +24,15 @@ clean:
 	-rm $(bin)/StudyHelper*
 	-rm ./StudyHelper*
 	-del $(obj)\*.o
-	-del $(bin)\StudyHelper*
-	-del .\StudyHelper*
+	-del $(bin)\*.exe
+	-del .\*.exe
 
-binary: $(prog) $(innerprogram)
+binary: $(prog)
+	$(foreach x,$(dirs),$(call innerprogram,$(x)))
 
 test:
-	echo $(sources)
-	echo $(headers)
+	echo $(dirs)
+	echo $(foreach x,$(dirs), $(bin)/$(notdir $(patsubst %/,%,$(x))))
 	
 $(obj)/main.o: $(src)/main.c
 	gcc -c -o $(obj)/main.o $(src)/main.c -O3
@@ -41,8 +40,13 @@ $(obj)/main.o: $(src)/main.c
 $(prog): $(obj)/main.o
 	gcc -o $(prog) $(obj)/main.o -O3
 	
-$(obj)/lesson.o: $(sources) $(headers)
-	gcc -c -o $(obj)/lesson.o $(sources) -O3
+define innerprogram
 
-$(innerprogram): $(obj)/lesson.o
-	gcc -o $(innerprogram) $(obj)/lesson.o -O3
+-rm $(obj)/*.o
+-del $(obj)\*.o
+gcc -c -o $(obj)/$(patsubst %.c,%.o,$(notdir $(call rwildcard,$1,*.c))) $(call rwildcard,$1,*.c) -O3
+gcc -o $(bin)/$(notdir $(patsubst %/,%,$1)) $(obj)/*.o -O3
+	
+endef
+	
+		
