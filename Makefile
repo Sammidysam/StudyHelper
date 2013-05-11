@@ -7,7 +7,7 @@ dirs:=$(sort $(dir $(call rwildcard,$(src)/*/,*)))
 
 prog=$(bin)/StudyHelper
 
-default: init all move
+default: cleanobj init all move
 
 init:
 	-mkdir obj
@@ -22,17 +22,19 @@ move:
 clean:
 	-rm $(obj)/*.o
 	-rm $(bin)/StudyHelper*
+	-rm $(bin)/Lesson*
 	-rm ./StudyHelper*
+	-rm ./Lesson*
 	-del $(obj)\*.o
 	-del $(bin)\*.exe
 	-del .\*.exe
 
+cleanobj:
+	-rm $(obj)/*.o
+	-del $(obj)\*.o
+
 binary: $(prog)
 	$(foreach x,$(dirs),$(call innerprogram,$(x)))
-
-test:
-	echo $(dirs)
-	echo $(foreach x,$(dirs), $(bin)/$(notdir $(patsubst %/,%,$(x))))
 	
 $(obj)/main.o: $(src)/main.c
 	gcc -c -o $(obj)/main.o $(src)/main.c -O3
@@ -45,7 +47,7 @@ define innerprogram
 -rm $(obj)/*.o
 -del $(obj)\*.o
 gcc -c -o $(obj)/$(patsubst %.c,%.o,$(notdir $(call rwildcard,$1,*.c))) $(call rwildcard,$1,*.c) -O3
-gcc -o $(bin)/$(notdir $(patsubst %/,%,$1)) $(obj)/*.o -O3
+gcc -o $(bin)/Lesson$(notdir $(patsubst %/,%,$1)) $(obj)/*.o -O3
 	
 endef
 	
