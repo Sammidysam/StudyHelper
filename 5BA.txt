@@ -31,7 +31,7 @@ canoso
 pelirrojo
 rubio
 negro
-castaño
+castaÃ±o
 to be warm/hot
 to be cold
 to be sleepy
@@ -58,15 +58,15 @@ menu
 now
 other/another
 tener calor
-tener frío
-tener sueño
+tener frÃ­o
+tener sueÃ±o
 delicioso
 desear
 pedir
 el plato principal
 el postre
 rico
-el azúcar
+el azÃºcar
 la cuchara
 el cuchillo
 la pimienta
@@ -79,11 +79,11 @@ el vaso
 el camarero
 la camarera
 la cuenta
-el menú
+el menÃº
 ahora
 otro
 to teach
-enseñar
+enseÃ±ar
 sick
 sad
 tired

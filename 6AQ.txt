@@ -1,13 +1,13 @@
 la alfombra
 el armario
 la cama
-la cÛmoda
+la c√≥moda
 las cortinas
 el cuadro
 el despertador
 el dormitorio
 el estante
-la l·mpara
+la l√°mpara
 la mesita
 la pared
 el disco compacto
@@ -22,7 +22,7 @@ anaranjado/naranja
 azul
 blanco
 gris
-marrÛn/pardo/cafÈ
+marr√≥n/pardo/caf√©
 morado/violeta
 negro
 rojo
@@ -33,13 +33,13 @@ feo
 grande
 importante
 mismo
-pequeÒo
+peque√±o
 propio
 a la derecha
 a la izquierda
 mejor que
 peor que
-m·s que
+m√°s que
 menos que
 mayor que
 menor que

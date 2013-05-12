@@ -14,7 +14,7 @@ canoso
 pelirrojo
 rubio
 negro
-castaño
+castaÃ±o
 short (stature)
 tall
 young woman
@@ -33,15 +33,15 @@ blond
 black
 brown (chestnut)
 tener calor
-tener frío
-tener sueño
+tener frÃ­o
+tener sueÃ±o
 delicioso
 desear
 pedir
 el plato principal
 el postre
 rico
-el azúcar
+el azÃºcar
 la cuchara
 el cuchillo
 la pimienta
@@ -54,7 +54,7 @@ el vaso
 el camarero
 la camarera
 la cuenta
-el menú
+el menÃº
 ahora
 otro
 to be warm/hot
@@ -82,7 +82,7 @@ bill
 menu
 now
 other/another
-enseñar
+enseÃ±ar
 to teach
 enfermo
 triste
