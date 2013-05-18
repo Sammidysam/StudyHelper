@@ -100,15 +100,18 @@ int main(int argc, char *argv[]){
 		do
 			answer = getchar();
 		while (isspace(answer));
-		if(answer >= 48 && answer <= 48 + getNumberOfExecutables())
+		if(answer >= 48 && answer < 48 + getNumberOfExecutables())
 			launchApplication(list[answer - '0']);
-		else if (answer > 48 + getNumberOfExecutables())
+		else if(answer >= 48 + getNumberOfExecutables() && answer <= 57)
 			printf("Error:  Input number corresponds to no executable!\n");
 		else
 			printf("Error!\n");
 	}
 	else
 		printf("Will be implemented soon!\n");
+	for(int i = 0; i < getNumberOfExecutables(); i++)
+		free(list[i]);
+	free(list);
 	return 0;
 }
 
