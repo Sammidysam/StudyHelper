@@ -24,6 +24,12 @@
 #include <glob.h>
 
 const char *pattern = OS == WINDOWS ? ".\\Lesson*" : "./Lesson*";
+int textMode = 1;
+const int ask = 1;
+
+void clearInput(){
+	while (getchar() != '\n');
+}
 
 int getNumberOfExecutables(){
 	glob_t result;
@@ -73,14 +79,36 @@ int main(int argc, char *argv[]){
 	printf("Platform Value:  %i\n", OS);
 	printf("-----ENDINIT----\n");
 	char **list = (char**)malloc(getNumberOfExecutables() * sizeof(char*));
-	for(int i = 0; i < getNumberOfExecutables(); i++){
+	for(int i = 0; i < getNumberOfExecutables(); i++)
 		list[i] = (char*)malloc(60);
-	}
 	getExecutables(list);
-	for(int i = 0; i < getNumberOfExecutables(); i++){
-		printf("%s\n", list[i]);
-		launchApplication(list[i]);
+	if(ask){
+		printf("Would you like to use text mode? y = yes, n = no\n");
+		char answer;
+		do
+			answer = getchar();
+		while (isspace(answer));
+		textMode = answer == 'y' ? 1 : 0;
 	}
+	if(textMode){
+		printf("Type the number of the lesson you want to run.\n");
+		for(int i = 0; i < getNumberOfExecutables(); i++){
+			printf("%i %s\n", i, list[i]);
+		}
+		char answer;
+		clearInput();
+		do
+			answer = getchar();
+		while (isspace(answer));
+		if(answer >= 48 && answer <= 48 + getNumberOfExecutables())
+			launchApplication(list[answer - '0']);
+		else if (answer > 48 + getNumberOfExecutables())
+			printf("Error:  Input number corresponds to no executable!\n");
+		else
+			printf("Error!\n");
+	}
+	else
+		printf("Will be implemented soon!\n");
 	return 0;
 }
 
