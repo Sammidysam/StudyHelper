@@ -1,53 +1,14 @@
-#ifdef _WIN64
-#define OS 0
-#elif _WIN32
-#define OS 0
-#elif __APPLE__
-#define OS 2
-#elif __linux
-#define OS 1
-#elif __unix
-#define OS 1
-#elif __posix
-#define OS 1
-#else
-#define OS -1
-#endif
-
-#define WINDOWS 0
-#define LINUX 1
-#define MAC 2
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <glob.h>
+#include "osdetect.h"
+#include "search.h"
 
-const char *pattern = OS == WINDOWS ? ".\\Lesson*" : "./Lesson*";
 int textMode = 1;
 const int ask = 1;
 
 void clearInput(){
 	while (getchar() != '\n');
-}
-
-int getNumberOfExecutables(){
-	glob_t result;
-	glob(pattern, GLOB_ERR, NULL, &result);
-	int number = 0;
-	for(int i = 0; i < result.gl_pathc; i++)
-		if(result.gl_pathv[i] != NULL)
-			number++;
-	globfree(&result);
-	return number;
-}
-
-void getExecutables(char **list){
-	glob_t result;
-	glob(pattern, GLOB_ERR, NULL, &result);
-	for(int i = 0; i < getNumberOfExecutables(); i++)
-		strcpy(list[i], result.gl_pathv[i]);
-	globfree(&result);
 }
 
 void launchApplication(char *appName){
