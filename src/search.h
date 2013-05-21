@@ -3,10 +3,10 @@
 
 #include "osdetect.h"
 
-#if OS != WINDOWS
-#include "slinux.h"
+#if OS == WINDOWS
+#include "searchwindows.h"
 #else
-#include "swindows.h"
+#include "searchlinux.h"
 #endif
 
 #endif
