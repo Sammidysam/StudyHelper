@@ -59,3 +59,64 @@ only
 relatives
 great-grandfather
 great-grandmother
+los abuelos
+el abuelo
+la abuela
+el esposo
+la esposa
+los hermanos
+el hermano
+la hermana
+el hermanastro
+la hermanastra
+los hijos
+el hijo
+la hija
+los padres (papás)
+el padre (papá)
+la madre (mamá)
+el padrastro
+la madrastra
+los primos
+el primo
+la prima
+los tíos
+el tío
+la tía
+mayor
+mayores
+menor
+menores
+la persona
+el gato
+el perro
+le gusta
+le encanta
+abrir
+celebrar
+decorar
+las decoraciones
+hacer un video
+el video
+preparar
+romper
+sacar fotos
+la foto
+la cámara
+el cumpleaños
+¡feliz cumpleaños!
+los dulces
+la flor
+las flores
+el globo
+la luz
+las luces
+el papel picado
+el pastel
+la piñata
+el regalo
+que
+sólo
+los parientes
+el bisabuelo
+la bisabuela

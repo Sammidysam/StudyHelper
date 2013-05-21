@@ -59,3 +59,64 @@ sólo
 los parientes
 el bisabuelo
 la bisabuela
+grandparents
+grandfather
+grandmother
+husband
+wife
+siblings
+brother
+sister
+step-brother
+step-sister
+children
+son
+daughter
+parents
+father
+mother
+step-father
+step-mother
+cousins
+male cousin
+female cousin
+aunts and uncles
+uncle
+aunt
+older
+older (plural)
+younger
+younger (plural)
+person
+cat
+dog
+he/she likes
+he/she loves
+to open
+to celebrate
+to decorate
+decorations
+to videotape
+video
+to prepare
+to break
+to take photos
+photo
+camera
+birthday
+happy birthday!
+candy
+flower
+flowers
+balloon
+light
+lights
+cut-paper decorations
+cake
+piñata
+gift, present
+who, that
+only
+relatives
+great-grandfather
+great-grandmother
