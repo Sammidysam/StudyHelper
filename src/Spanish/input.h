@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <string.h>
-#include "boolean.h"
+#include "../boolean.h"
 
 #ifndef OK
 #define OK 0

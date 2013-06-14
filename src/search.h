@@ -6,7 +6,7 @@
 #if OS == WINDOWS
 #include "searchwindows.h"
 #else
-#include "searchlinux.h"
+#include "searchunix.h"
 #endif
 
 #endif

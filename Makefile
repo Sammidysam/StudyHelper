@@ -3,23 +3,19 @@ rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
 bin=bin
 src=src
 obj=obj
-flags=-Wall -std=c11 -ggdb -O3
+flags=-Wall -std=c11 -ljson -ggdb -O3
 
 dirs:=$(sort $(dir $(call rwildcard,$(src)/*/,*)))
 
 prog=$(bin)/StudyHelper
 
-default: cleanobj init all move
+default: cleanobj init all
 
 init:
 	-mkdir obj
 	-mkdir bin
 
 all: binary
-	
-move:
-	-cp $(bin)/* .
-	-copy $(bin)\* .
 	
 clean:
 	-rm $(obj)/*.o

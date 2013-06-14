@@ -9,4 +9,8 @@ To make/build/compile,
 make
 </pre>
 
-Simple as that.  The Windows binaries will be on my website eventually, and when so I will put the download links here.
+Simple as that.
+
+Compiling prerequisites:
+- json-c
+- json-c-devel

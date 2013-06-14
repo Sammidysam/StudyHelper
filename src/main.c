@@ -1,17 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include <json/json.h>
+
 #include "osdetect.h"
 #include "search.h"
+#include "boolean.h"
+#include "error.h"
 
-int textMode = 1;
-const int ask = 1;
+bool textMode = true;
+const bool ask = true;
 
 void clearInput(){
+	// clears input to prevent weirdness
 	while (getchar() != '\n');
 }
 
 void launchApplication(char *appName){
+	// launches an application via the command line
+	// does so based on current OS
 	char command [60];
 	switch (OS){
 		case WINDOWS:
@@ -36,13 +44,28 @@ void launchApplication(char *appName){
 }
 
 int main(int argc, char *argv[]){
+	// display some init information
+	// mainly for debugging
 	printf("-----INIT-------\n");
 	printf("Platform Value:  %i\n", OS);
 	printf("-----ENDINIT----\n");
+
+	// parses arguments
+	// only argument currently is executables location
+	// activated by "-el path" or "--exec-location path"
+	if(argc % 2 != 1)
+		err("Invalid number of arguments", false);
+	else {
+
+	}
+
+	// make list of executables
 	char **list = (char**)malloc(getNumberOfExecutables() * sizeof(char*));
 	for(int i = 0; i < getNumberOfExecutables(); i++)
 		list[i] = (char*)malloc(60);
 	getExecutables(list);
+
+	// ask if text mode is desired
 	if(ask){
 		printf("Would you like to use text mode? y = yes, n = no\n");
 		char answer;
@@ -51,6 +74,8 @@ int main(int argc, char *argv[]){
 		while (isspace(answer));
 		textMode = answer == 'y' ? 1 : 0;
 	}
+
+	// do stuff according to being in text mode or not
 	if(textMode){
 		printf("Type the number of the lesson you want to run.\n");
 		for(int i = 0; i < getNumberOfExecutables(); i++){
@@ -70,10 +95,10 @@ int main(int argc, char *argv[]){
 	}
 	else
 		printf("Will be implemented soon!\n");
+
+	// free memory taken from executables list
 	for(int i = 0; i < getNumberOfExecutables(); i++)
 		free(list[i]);
 	free(list);
 	return 0;
 }
-
-

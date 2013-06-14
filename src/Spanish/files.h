@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "errorlog.h"
-#include "boolean.h"
+#include "../boolean.h"
 
 bool checkExistance(FILE *file, char *name, bool print){
 	if(print && !file){
@@ -47,8 +47,7 @@ int getLines(char *questionFile, char *answerFile){
 void getFileLine(char *string, int line, char *fileName){
 	FILE *answer = fopen(fileName, "r");
 	if(checkExistance(answer, fileName, true)){
-		int localLine = 0;
-		for(localLine = 0; localLine < line + 1; localLine++){
+		for(int localLine = 0; localLine < line + 1; localLine++){
 			if(fgets(string, 256, answer) == NULL)
 				break;
 		}

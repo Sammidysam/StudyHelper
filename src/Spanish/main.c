@@ -2,10 +2,11 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+
 #include "input.h"
 #include "files.h"
 #include "errorlog.h"
-#include "boolean.h"
+#include "../boolean.h"
 #include "../osdetect.h"
 
 char questionFile [260], answerFile [260];
@@ -42,8 +43,7 @@ int main(int argc, char *argv[]){
 		getFileLine(question, questionLine, questionFile);
 		printf("%s", question);
 		getLineLoop("", input, sizeof(input));
-		int i = 0;
-		for(i = 0; input[i]; i++)
+		for(int i = 0; input[i]; i++)
 			input[i] = tolower(input[i]);
 		if(strcmp(input, "stop") == 0)
 			done = true;
@@ -52,8 +52,7 @@ int main(int argc, char *argv[]){
 			if(!checkCorrect)
 				printf("%s", answer);
 			else {
-				int j = 0;
-				for(j = 0; answer[j]; j++)
+				for(int j = 0; answer[j]; j++)
 					answer[j] = tolower(answer[j]);
 				if(strcmp(input, answer) == 0)
 					printf("Correct!\n");

@@ -10,8 +10,7 @@ void logError(char *string){
 	srand(time(NULL));
 	char errorName [13];
 	strcat(errorName, "error");
-	int i = 0;
-	for(i = 0; i < 10; i++)
+	for(int i = 0; i < 10; i++)
 		sprintf(errorName + strlen(errorName), "%i", rand() % 10);
 	strcat(errorName, ".txt");
 	printf("Error logged in ");
