@@ -23,10 +23,10 @@ int main(int argc, char *argv[]){
 	strcatc(questionFile, PATHSEP);
 	strcatc(answerFile, PATHSEP);
 	char name [260];
-	getLineLoop("Type the name of the questions file.\n", name, sizeof(name));
+	getLineLoop("Type the name of the questions file.", name, sizeof(name));
 	strcat(questionFile, name);
 	strcat(questionFile, ".txt");
-	getLineLoop("Type the name of the answers file.\n", name, sizeof(name));
+	getLineLoop("Type the name of the answers file.", name, sizeof(name));
 	strcat(answerFile, name);
 	strcat(answerFile, ".txt");
 	srand(time(NULL));

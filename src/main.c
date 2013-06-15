@@ -74,12 +74,10 @@ int main(int argc, char *argv[]){
 
 	// ask if text mode is desired
 	if(ask){
-		printf("Would you like to use text mode? y = yes, n = no\n");
-		char answer;
-		do
-			answer = getchar();
-		while (isspace(answer));
-		textMode = answer == 'y' ? true : false;
+		char answer [60];
+		getLineLoop("Would you like to use text mode? [y/n]", answer, sizeof(answer));
+		char first = answer[0];
+		textMode = first == 'y' ? true : false;
 	}
 
 	// do stuff according to being in text mode or not
@@ -90,11 +88,7 @@ int main(int argc, char *argv[]){
 		}
 
 		// make answer string
-		// length of 5 because having more than 9999 lessons is insane
-		char answer [5];
-
-		// clear input
-		while(getchar() != '\n');
+		char answer [60];
 
 		// get input
 		getLineLoop("", answer, sizeof(answer));

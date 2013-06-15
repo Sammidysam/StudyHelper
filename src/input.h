@@ -19,7 +19,8 @@
 //this will never return NO_INPUT sadly
 int getLine(char *prompt, char *buffer, size_t size){
     if(prompt != NULL){
-        printf("%s", prompt);
+        if(strlen(prompt) != 0)
+            printf("%s\n", prompt);
         fflush(stdout);
     }
     if(fgets(buffer, size, stdin) == NULL)
