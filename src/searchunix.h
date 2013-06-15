@@ -2,12 +2,16 @@
 #define SLINUX_H
 
 #include <glob.h>
+#include <string.h>
 
-#define PATTERN "./Lesson*"
+#define PATTERN "Lesson*"
 
-int getNumberOfExecutables(){
+int getNumberOfExecutables(char *dir){
+	char pattern [260];
+	strcpy(pattern, dir);
+	strcat(pattern, PATTERN);
 	glob_t result;
-	glob(PATTERN, GLOB_ERR, NULL, &result);
+	glob(pattern, GLOB_ERR, NULL, &result);
 	int number = 0;
 	for(int i = 0; i < result.gl_pathc; i++)
 		if(result.gl_pathv[i] != NULL)
@@ -16,10 +20,13 @@ int getNumberOfExecutables(){
 	return number;
 }
 
-void getExecutables(char **list){
+void getExecutables(char *dir, char **list){
+	char pattern [260];
+	strcpy(pattern, dir);
+	strcat(pattern, PATTERN);
 	glob_t result;
-	glob(PATTERN, GLOB_ERR, NULL, &result);
-	for(int i = 0; i < getNumberOfExecutables(); i++)
+	glob(pattern, GLOB_ERR, NULL, &result);
+	for(int i = 0; i < getNumberOfExecutables(dir); i++)
 		strcpy(list[i], result.gl_pathv[i]);
 	globfree(&result);
 }

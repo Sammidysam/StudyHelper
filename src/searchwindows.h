@@ -2,12 +2,16 @@
 #define SWINDOWS_H
 
 #include <windows.h>
+#include <string.h>
 
-#define PATTERN ".\\Lesson*"
+#define PATTERN "Lesson*"
 
-int getNumberOfExecutables(){
+int getNumberOfExecutables(char *dir){
+	char pattern [260];
+	strcpy(pattern, dir);
+	strcat(pattern, PATTERN);
 	WIN32_FIND_DATA data;
-	HANDLE hFind = FindFirstFile(PATTERN, &data);
+	HANDLE hFind = FindFirstFile(pattern, &data);
 	if(hFind == INVALID_HANDLE_VALUE)
 		return 0;
 	int number = 1;
@@ -17,11 +21,14 @@ int getNumberOfExecutables(){
 	return number;
 }
 
-void getExecutables(char **list){
+void getExecutables(char *dir, char **list){
+	char pattern [260];
+	strcpy(pattern, dir);
+	strcat(pattern, PATTERN);
 	if(getNumberOfExecutables() < 1)
 		return;
 	WIN32_FIND_DATA lesson;
-	HANDLE hFind = FindFirstFile(PATTERN, &lesson);
+	HANDLE hFind = FindFirstFile(pattern, &lesson);
 	strcpy(list[0], lesson.cFileName);
 	for(int i = 1; i < getNumberOfExecutables(); i++){
 		FindNextFile(hFind, &lesson);

@@ -21,4 +21,10 @@
 #define LINUX 1
 #define MAC 2
 
+#if OS == WINDOWS
+#define PATHSEP '\\'
+#else
+#define PATHSEP '/'
+#endif
+
 #endif

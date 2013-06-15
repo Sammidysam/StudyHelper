@@ -3,11 +3,12 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "input.h"
+#include "../input.h"
 #include "files.h"
 #include "errorlog.h"
 #include "../boolean.h"
 #include "../osdetect.h"
+#include "../charappend.h"
 
 char questionFile [260], answerFile [260];
 bool checkCorrect = false;
@@ -17,13 +18,10 @@ int main(int argc, char *argv[]){
 	printf("All lessons should be in the lessons directory.\n");
 	printf("When prompted, just type the name of the lesson.  Do not type the file extension or the directory it is in.\n");
 	printf("For example, if you had the lesson with question file 4BQ.txt and answer file 4BA.txt in the lessons folder, you would simply type \"4BQ.txt\" for the question file and \"4BA.txt\" for the answer file.\n");
-	if(OS == WINDOWS){
-		strcpy(questionFile, "lessons\\");
-		strcpy(answerFile, "lessons\\");
-	} else {
-		strcpy(questionFile, "lessons/");
-		strcpy(answerFile, "lessons/");
-	}
+	strcpy(questionFile, "lessons");
+	strcpy(answerFile, "lessons");
+	strcatc(questionFile, PATHSEP);
+	strcatc(answerFile, PATHSEP);
 	char name [260];
 	getLineLoop("Type the name of the questions file.\n", name, sizeof(name));
 	strcat(questionFile, name);

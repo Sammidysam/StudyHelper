@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <string.h>
-#include "../boolean.h"
+#include "boolean.h"
 
 #ifndef OK
 #define OK 0
@@ -18,7 +18,6 @@
 //thanks to http://stackoverflow.com/questions/4023895/how-to-read-string-entered-by-user-in-c/4023921#4023921 for the great code!
 //this will never return NO_INPUT sadly
 int getLine(char *prompt, char *buffer, size_t size){
-    int character, extra;
     if(prompt != NULL){
         printf("%s", prompt);
         fflush(stdout);
@@ -26,7 +25,7 @@ int getLine(char *prompt, char *buffer, size_t size){
     if(fgets(buffer, size, stdin) == NULL)
         return NO_INPUT;
     if(buffer[strlen(buffer) - 1] != '\n'){
-        extra = 0;
+        int character, extra = 0;
         while(((character = getchar()) != '\n') && (character != EOF))
             extra = 1;
         return (extra == 1) ? TOO_LONG : OK;
