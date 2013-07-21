@@ -1,12 +1,7 @@
 #ifndef SEARCH_H
 #define SEARCH_H
 
-#include "osdetect.h"
-
-#if OS == WINDOWS
-#include "searchwindows.h"
-#else
-#include "searchunix.h"
-#endif
+int getNumberOfExecutables(char *dir);
+void getExecutables(char *dir, char **list);
 
 #endif

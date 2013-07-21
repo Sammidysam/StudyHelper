@@ -7,6 +7,8 @@ flags=-Wall -std=c11 -ljson -ggdb -O3
 
 dirs:=$(sort $(dir $(call rwildcard,$(src)/*/,*)))
 
+objects:=$(patsubst $(src)/%.c,$(obj)/%.o,$(wildcard $(src)/*.c))
+
 prog=$(bin)/StudyHelper
 
 default: cleanobj init all
@@ -16,7 +18,7 @@ init:
 	-mkdir bin
 
 all: binary
-	
+
 clean:
 	-rm $(obj)/*.o
 	-rm $(bin)/StudyHelper*
@@ -33,20 +35,18 @@ cleanobj:
 
 binary: $(prog)
 	$(foreach x,$(dirs),$(call innerprogram,$(x)))
-	
-$(obj)/main.o: $(src)/main.c
-	gcc -c -o $(obj)/main.o $(src)/main.c $(flags)
-	
-$(prog): $(obj)/main.o
-	gcc -o $(prog) $(obj)/main.o $(flags)
-	
+
+$(objects): $(wildcard $(src)/*.c)
+	gcc -c -o $@ $(patsubst $(obj)/%.o,$(src)/%.c,$@) $(flags)
+
+$(prog): $(objects)
+	gcc -o $(prog) $(wildcard $(obj)/*.o) $(flags)
+
 define innerprogram
 
 -rm $(obj)/*.o
 -del $(obj)\*.o
 gcc -c -o $(obj)/$(patsubst %.c,%.o,$(notdir $(call rwildcard,$1,*.c))) $(call rwildcard,$1,*.c) $(flags)
 gcc -o $(bin)/Lesson$(notdir $(patsubst %/,%,$1)) $(obj)/*.o $(flags)
-	
+
 endef
-	
-		
