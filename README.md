@@ -14,3 +14,8 @@ Simple as that.
 Compiling prerequisites:
 - json-c
 - json-c-devel
+
+License
+=======
+
+This program is licensed under the GNU General Public License version 3. To see the license, visit the file [LICENSE](LICENSE).
